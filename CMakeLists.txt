@@ -12,18 +12,9 @@ endif()
 
 
 
-CHECK_CXX_COMPILER_FLAG("-mavx2" COMPILER_OPT_ARCH_AVX2_SUPPORTED)
-CHECK_CXX_COMPILER_FLAG("-msse2" COMPILER_OPT_ARCH_SSE2_SUPPORTED)
-if(COMPILER_OPT_ARCH_AVX2_SUPPORTED)
-    set(CMAKE_CXX_FLAGS "-Wall -g3 -O3 -funroll-all-loops -mavx2 -I ./ -std=gnu++14 -pthread")
-    set(CMAKE_C_FLAGS "-Wall -g3 -O3 -funroll-all-loops -mavx2 -I ./ -std=gnu++14 -pthread")
-elseif( COMPILER_OPT_ARCH_SSE2_SUPPORTED)
-    set(CMAKE_CXX_FLAGS "-Wall -msse2 -g3 -O3 -funroll-all-loops -I ./ -std=gnu++14 -pthread")
-    set(CMAKE_C_FLAGS "-Wall -msse2 -g3 -O3 -funroll-all-loops -I ./ -std=gnu++14 -pthread")
-else()
-    set(CMAKE_CXX_FLAGS "-Wall -g3 -O3 -funroll-all-loops -I ./ -std=gnu++14 -pthread")
-    set(CMAKE_C_FLAGS "-Wall -g3 -O3 -funroll-all-loops -I ./ -std=gnu++14 -pthread")
-endif()
+
+set(CMAKE_CXX_FLAGS "-Wall -msse2 -g3 -O3 -funroll-all-loops -I ./ -std=gnu++14 -pthread")
+set(CMAKE_C_FLAGS "-Wall -msse2 -g3 -O3 -funroll-all-loops -I ./ -std=gnu++14 -pthread")
 
 
 #for google unit test
